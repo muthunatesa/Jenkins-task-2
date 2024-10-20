@@ -4,20 +4,20 @@ pipeline {
         stage('Build') {
             steps {
                 sh './task_2.sh'
-              }
-         }
+            }
+        }
     }
-   post {
-       success { 
-              mail to: 'muthunatesa@gmail.com',
-                  subject: "Build successful",
-		    body: "This build was successful"
-	}
-	failure {
-		mail to: 'muthunatesa@gmail.com',
-		   subject: "Build failed",
-	 	     body: "This Build failed"
-	}
-   }
+    post {
+        success {
+            mail to: 'muthunatesa@gmail.com',
+                 subject: 'Jenkins Build Success',
+                 body: 'The build was successful.'
+        }
+        failure {
+            mail to: 'muthunatesa@gmail.com',
+                 subject: 'Jenkins Build Failure',
+                 body: 'The build failed.'
+        }
+    }
 }
 
